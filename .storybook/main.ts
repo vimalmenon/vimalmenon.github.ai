@@ -28,6 +28,7 @@ const config: StorybookConfig = {
           "@": path.resolve(__dirname, "../src"),
           "@utilities": path.resolve(__dirname, "../src/utilities"),
           "@components": path.resolve(__dirname, "../src/components"),
+          "@data": path.resolve(__dirname, "../src/data"),
         },
       },
     });
