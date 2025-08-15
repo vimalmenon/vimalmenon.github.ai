@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/nextjs-vite";
+import { mergeConfig } from "vite";
+import path from "path";
 
 const config: StorybookConfig = {
   "stories": [
@@ -18,6 +20,17 @@ const config: StorybookConfig = {
   },
   "staticDirs": [
     "../public"
-  ]
+  ],
+  async viteFinal(config, { configType }) {
+    return mergeConfig(config, {
+      resolve: {
+        alias: {
+          "@": path.resolve(__dirname, "../src"),
+          "@utilities": path.resolve(__dirname, "../src/utilities"),
+          "@components": path.resolve(__dirname, "../src/components"),
+        },
+      },
+    });
+  },
 };
 export default config;
