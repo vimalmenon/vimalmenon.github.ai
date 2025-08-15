@@ -1,8 +1,7 @@
 import { Github, Linkedin, Mail, X } from 'lucide-react';
 import * as motion from 'motion/react-client';
-import * as SeparatorPrimitive from '@radix-ui/react-separator';
 
-// import { Button, Separator } from '@component';
+import { Button, Separator } from '@components';
 
 export const Footer = () => {
   const socialLinks = [
@@ -32,24 +31,15 @@ export const Footer = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                {/* <Button variant="ghost" size="icon" className={`${link.color} transition-colors`}>
+                <Button variant="ghost" size="icon" className={`${link.color} transition-colors`}>
                   <link.icon className="h-5 w-5" />
                   <span className="sr-only">{link.name}</span>
-                </Button> */}
+                </Button>
               </motion.a>
             ))}
           </div>
 
-          {/* <SeparatorPrimitive.Root
-      data-slot="separator-root"
-      decorative={'horizontal'}
-      orientation={'horizontal'}
-      className={cn(
-        'bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px',
-        className
-      )}
-      {...props}
-    /> */}
+          <Separator className="w-full max-w-md" />
 
           {/* Copyright */}
           <div className="text-center text-sm text-muted-foreground">
