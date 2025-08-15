@@ -1,20 +1,9 @@
-import { Github, Linkedin, Mail, X } from 'lucide-react';
 import * as motion from 'motion/react-client';
+import { socialLinks } from "@data"
 
 import { Button, Separator } from '@components';
 
 export const Footer = () => {
-  const socialLinks = [
-    { color: 'hover:text-gray-600', href: 'https://github.com', icon: Github, name: 'GitHub' },
-    {
-      color: 'hover:text-blue-600',
-      href: 'https://linkedin.com',
-      icon: Linkedin,
-      name: 'LinkedIn',
-    },
-    { color: 'hover:text-blue-400', href: 'https://twitter.com', icon: X, name: 'Twitter' },
-    { color: 'hover:text-green-600', href: 'mailto:john@example.com', icon: Mail, name: 'Email' },
-  ];
 
   return (
     <footer className="border-t bg-background">
