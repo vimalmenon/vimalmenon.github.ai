@@ -1,4 +1,4 @@
-import { BookOpen, Home, Menu, Package, Settings } from 'lucide-react';
+import { BookOpen, Home, Menu, Package, Settings, XIcon } from 'lucide-react';
 
 
 export const Icons = {
@@ -6,5 +6,6 @@ export const Icons = {
     Home,
     Menu,
     Package,
-    Settings
+    Settings,
+    XIcon
 }
