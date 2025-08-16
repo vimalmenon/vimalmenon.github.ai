@@ -1,5 +1,8 @@
 import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
+export type AnyType = any;
+
 export interface IReactChildren {
   children: React.ReactNode;
 }
@@ -28,7 +31,7 @@ export interface ILocalStorageKey {
 export interface INavigationItemSlim {
   name: string;
   url: string;
-  Icon?: any;
+  Icon?: AnyType;
 }
 
 export interface INavigationItem extends INavigationItemSlim {
