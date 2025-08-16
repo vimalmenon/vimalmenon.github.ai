@@ -41,8 +41,6 @@ export default function RootLayout({
         <ThemeContext>
           {children}
         </ThemeContext>
-
-        <Footer />
       </body>
     </html>
   );

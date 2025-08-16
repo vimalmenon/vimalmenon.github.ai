@@ -4,10 +4,8 @@ import { navigationMap } from "@data";
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen p-8 text-center">
-      <MainLayout navigation={navigationMap.Home}>
-        <NotFound />
-      </MainLayout>
-    </div>
+    <MainLayout navigation={navigationMap.Home}>
+      <NotFound />
+    </MainLayout>
   );
 }
