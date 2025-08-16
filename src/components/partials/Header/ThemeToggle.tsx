@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 
 import { Check, Monitor, Moon, Palette, Sun } from 'lucide-react';

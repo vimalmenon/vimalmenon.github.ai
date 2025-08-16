@@ -1,20 +1,18 @@
-
-"use client";
-
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Navigation, Icons } from '@data';
 import * as motion from 'motion/react-client';
 
 import Link from 'next/link';
 
-import { Button, Separator, Sheet, SheetContent, SheetTrigger } from "@components";
+import { MobileMenu } from "./MobileMenu"
+
+import { Button } from "@components";
 import { IHeaderProps } from './Header';
 
-import { ColorThemeSelector, SimpleModeToggle, ThemeToggle } from './ThemeToggle';
+import { SimpleModeToggle, ThemeToggle } from './ThemeToggle';
 
 export const Header: React.FC<IHeaderProps> = ({ url }) => {
-  const [isOpen, setIsOpen] = useState(false);
 
   const isActive = (path: string) => path === url;
 
@@ -67,45 +65,7 @@ export const Header: React.FC<IHeaderProps> = ({ url }) => {
             </div>
 
             {/* Mobile Menu */}
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Icons.Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[320px]">
-                <div className="flex flex-col space-y-6 mt-8">
-                  {/* Navigation */}
-                  <div className="space-y-2">
-                    {Navigation.map((item) => (
-                      <Link key={item.name} href={item.url} onClick={() => setIsOpen(false)}>
-                        <Button
-                          variant={isActive(item.url) ? 'default' : 'ghost'}
-                          className="w-full justify-start space-x-2"
-                        >
-                          <item.Icon className="h-4 w-4" />
-                          <span>{item.name}</span>
-                        </Button>
-                      </Link>
-                    ))}
-                  </div>
-
-                  <Separator />
-
-                  {/* Theme Settings */}
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Appearance</span>
-                      <ThemeToggle />
-                    </div>
-
-                    <div className="space-y-2">
-                      <ColorThemeSelector />
-                    </div>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+            <MobileMenu url={url} />
           </div>
         </div>
       </div>
