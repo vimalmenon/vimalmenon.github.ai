@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { Navigation, Icons } from '@data';
+import { Navigation } from '@data';
 import * as motion from 'motion/react-client';
 
 import Link from 'next/link';
