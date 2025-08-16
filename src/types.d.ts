@@ -15,7 +15,12 @@ export type ColorTheme =
   | "red"
   | "pink";
 
-export type ThemeConfig = {
+export interface ThemeConfig {
   colorTheme: ColorTheme;
   mode: ThemeMode;
-};
+}
+
+export interface ILocalStorageKey {
+  colorTheme: ColorTheme;
+  mode: ThemeMode;
+}

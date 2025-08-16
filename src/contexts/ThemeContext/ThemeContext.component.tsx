@@ -6,33 +6,23 @@ import { useEffect, useState } from 'react';
 
 import { ThemeMode, ThemeConfig, } from "@types"
 import { IContext } from './ThemeContext';
-import { storageKey } from "@data";
+import { localStorageHook } from '@hooks';
 
 
 export const ThemeContext: React.FC<IReactChildren> = ({ children }) => {
   const [mounted, setMounted] = useState<boolean>(false);
   const [themeConfig, setThemeConfig] = useState<ThemeConfig>(defaultThemeConfig);
   const [actualMode, setActualMode] = useState<ThemeMode>('light');
+  const [storedValue, setStoredValue] = localStorageHook();
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(storageKey);
-      if (stored) {
-        const parsedTheme = JSON.parse(stored);
-        // Handle migration from old theme format
-        if (typeof parsedTheme === 'string') {
-          setThemeConfig({ colorTheme: 'default', mode: parsedTheme as ThemeMode });
-        } else if (parsedTheme && typeof parsedTheme === 'object') {
-          setThemeConfig({
-            colorTheme: parsedTheme.colorTheme || 'default',
-            mode: parsedTheme.mode || 'system',
-          });
-        }
-      }
-    } catch (error) {
-      console.warn('Failed to load theme from localStorage:', error);
+    if (storedValue) {
+      setThemeConfig({
+        colorTheme: storedValue?.colorTheme || 'default',
+        mode: storedValue?.mode || 'system',
+      });
     }
     setMounted(true);
-  }, [storageKey]);
+  }, [storedValue]);
   useEffect(() => {
     if (!mounted) return;
 
@@ -85,11 +75,7 @@ export const ThemeContext: React.FC<IReactChildren> = ({ children }) => {
     return () => mediaQuery.removeEventListener('change', handleMediaChange);
   }, [themeConfig, mounted]);
   const saveTheme = (config: ThemeConfig) => {
-    try {
-      localStorage.setItem(storageKey, JSON.stringify(config));
-    } catch (error) {
-      console.warn('Failed to save theme to localStorage:', error);
-    }
+    setStoredValue(config);
     setThemeConfig(config);
   };
   const value: IContext = {
