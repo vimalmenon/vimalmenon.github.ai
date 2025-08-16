@@ -6,7 +6,12 @@ import { Container } from "./Container.component"
 
 const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {},
+  argTypes: {
+    url: {
+      control: 'select', // Use a select dropdown in the Controls panel
+      options: ['/', '/blogs', '/release', '/admin'], // The available options
+    },
+  },
   component: Header,
   //   parameters: {
   //     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -25,17 +30,12 @@ const meta = {
 } satisfies Meta<typeof Header>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Home: Story = {
+export const Simple: Story = {
   args: {
     url: "/"
   },
 };
 
-export const Blogs: Story = {
-  args: {
-    url: "/blogs"
-  },
-};
 type Story = StoryObj<typeof meta>;
 
 export default meta;

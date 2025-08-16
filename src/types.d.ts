@@ -15,7 +15,7 @@ export type ColorTheme =
   | "red"
   | "pink";
 
-type ThemeConfig = {
+export type ThemeConfig = {
   colorTheme: ColorTheme;
   mode: ThemeMode;
 };
