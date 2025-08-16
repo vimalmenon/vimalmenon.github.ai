@@ -14,6 +14,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@components';
+import { IDynamicBreadcrumbProps } from './DynamicBreadcrumb';
 
 // Define route metadata for better breadcrumb labels
 const routeLabels: Record<string, string> = {
@@ -37,14 +38,7 @@ interface BreadcrumbSegment {
   isLast: boolean;
 }
 
-export const DynamicBreadcrumb = () => {
-  const pathname = '/';
-
-  // Don't show breadcrumbs on home page
-  if (pathname === '/') {
-    return null;
-  }
-
+export const DynamicBreadcrumb: React.FC<IDynamicBreadcrumbProps> = ({ breadcrumbs }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: -10 }}
@@ -67,23 +61,23 @@ export const DynamicBreadcrumb = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
 
-          {[].length > 0 && <BreadcrumbSeparator />}
+          {breadcrumbs.length > 0 && <BreadcrumbSeparator />}
 
           {/* Dynamic segments */}
-          {[].map((segment: BreadcrumbSegment) => (
-            <React.Fragment key={segment.href}>
+          {breadcrumbs.map((breadcrumb, index, breadcrumbs) => (
+            <React.Fragment key={breadcrumb.url}>
               <BreadcrumbItem>
-                {segment.isLast ? (
-                  <BreadcrumbPage>{segment.label}</BreadcrumbPage>
+                {index == breadcrumbs.length - 1 ? (
+                  <BreadcrumbPage>{breadcrumb.name}</BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink asChild>
-                    <Link href={segment.href} className="hover:text-primary transition-colors">
-                      {segment.label}
+                    <Link href={breadcrumb.url} className="hover:text-primary transition-colors">
+                      {breadcrumb.name}
                     </Link>
                   </BreadcrumbLink>
                 )}
               </BreadcrumbItem>
-              {!segment.isLast && <BreadcrumbSeparator />}
+              {!(index == breadcrumbs.length - 1) && <BreadcrumbSeparator />}
             </React.Fragment>
           ))}
         </BreadcrumbList>
