@@ -25,8 +25,15 @@ const meta = {
 } satisfies Meta<typeof Header>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Simple: Story = {
+export const Home: Story = {
   args: {
+    url: "/"
+  },
+};
+
+export const Blogs: Story = {
+  args: {
+    url: "/blogs"
   },
 };
 type Story = StoryObj<typeof meta>;

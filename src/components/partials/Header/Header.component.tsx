@@ -1,4 +1,6 @@
 
+"use client";
+
 import React, { useState } from 'react';
 
 import { Navigation, Icons } from '@data';
@@ -7,13 +9,14 @@ import * as motion from 'motion/react-client';
 import Link from 'next/link';
 
 import { Button, Separator, Sheet, SheetContent, SheetTrigger } from "@components";
+import { IHeaderProps } from './Header';
 
 // import { ColorThemeSelector, SimpleModeToggle, ThemeToggle } from './ThemeToggle';
 
-export const Header = () => {
+export const Header: React.FC<IHeaderProps> = ({ url }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const isActive = (path: string) => path === '/';
+  const isActive = (path: string) => path === url;
 
   return (
     <motion.header
