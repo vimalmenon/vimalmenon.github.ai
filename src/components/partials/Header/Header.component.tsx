@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { Button, Separator, Sheet, SheetContent, SheetTrigger } from "@components";
 import { IHeaderProps } from './Header';
 
-// import { ColorThemeSelector, SimpleModeToggle, ThemeToggle } from './ThemeToggle';
+import { ColorThemeSelector, SimpleModeToggle, ThemeToggle } from './ThemeToggle';
 
 export const Header: React.FC<IHeaderProps> = ({ url }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,12 +58,12 @@ export const Header: React.FC<IHeaderProps> = ({ url }) => {
           <div className="flex items-center space-x-2">
             {/* Desktop Theme Toggle */}
             <div className="hidden lg:block">
-              {/* <ThemeToggle /> */}
+              <ThemeToggle />
             </div>
 
             {/* Tablet/Mobile Simple Toggle */}
             <div className="lg:hidden">
-              {/* <SimpleModeToggle /> */}
+              <SimpleModeToggle />
             </div>
 
             {/* Mobile Menu */}
@@ -96,11 +96,11 @@ export const Header: React.FC<IHeaderProps> = ({ url }) => {
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium">Appearance</span>
-                      {/* <ThemeToggle /> */}
+                      <ThemeToggle />
                     </div>
 
                     <div className="space-y-2">
-                      {/* <ColorThemeSelector /> */}
+                      <ColorThemeSelector />
                     </div>
                   </div>
                 </div>
