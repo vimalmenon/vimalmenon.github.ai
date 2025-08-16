@@ -2,6 +2,7 @@
 
 import { ThemeConfig } from "@/types";
 import { createContext } from "react";
+import { notImplemented } from "@utilities";
 
 import { IContext } from "./ThemeContext";
 
@@ -10,9 +11,9 @@ const initialState: IContext = {
   colorTheme: "default",
   mode: "system",
   mounted: false,
-  setColorTheme: () => null,
-  setMode: () => null,
-  setTheme: () => null,
+  setColorTheme: notImplemented,
+  setMode: notImplemented,
+  setTheme: notImplemented,
 };
 
 export const Context = createContext<IContext>(initialState);
