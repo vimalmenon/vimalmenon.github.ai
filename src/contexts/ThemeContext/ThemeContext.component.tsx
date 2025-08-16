@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 
 import { ThemeMode, ThemeConfig, } from "@types"
 import { IContext } from './ThemeContext';
+import { storageKey } from "@data";
 
-const storageKey = "vimalmenon.ai"
 
 export const ThemeContext: React.FC<IReactChildren> = ({ children }) => {
   const [mounted, setMounted] = useState<boolean>(false);
