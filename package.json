@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "update": "ncu -u --timeout 300000",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "tsc": "tsc"
@@ -21,8 +22,8 @@
     "motion": "^12.23.12",
     "next": "15.4.6",
     "postcss": "^8.5.6",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
@@ -34,7 +35,7 @@
     "@storybook/addon-vitest": "^9.1.2",
     "@storybook/nextjs-vite": "^9.1.2",
     "@tailwindcss/postcss": "^4.1.12",
-    "@types/node": "^20",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitest/browser": "^3.2.4",
