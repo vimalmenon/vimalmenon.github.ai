@@ -42,12 +42,12 @@ export const Header: React.FC<IHeaderProps> = ({ url }) => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
             {Navigation.map((item) => (
-              <Link key={item.name} href={item.href}>
+              <Link key={item.name} href={item.url}>
                 <Button
-                  variant={isActive(item.href) ? 'default' : 'ghost'}
+                  variant={isActive(item.url) ? 'default' : 'ghost'}
                   className="flex items-center space-x-2"
                 >
-                  <item.icon className="h-4 w-4" />
+                  <item.Icon className="h-4 w-4" />
                   <span>{item.name}</span>
                 </Button>
               </Link>
@@ -78,12 +78,12 @@ export const Header: React.FC<IHeaderProps> = ({ url }) => {
                   {/* Navigation */}
                   <div className="space-y-2">
                     {Navigation.map((item) => (
-                      <Link key={item.name} href={item.href} onClick={() => setIsOpen(false)}>
+                      <Link key={item.name} href={item.url} onClick={() => setIsOpen(false)}>
                         <Button
-                          variant={isActive(item.href) ? 'default' : 'ghost'}
+                          variant={isActive(item.url) ? 'default' : 'ghost'}
                           className="w-full justify-start space-x-2"
                         >
-                          <item.icon className="h-4 w-4" />
+                          <item.Icon className="h-4 w-4" />
                           <span>{item.name}</span>
                         </Button>
                       </Link>

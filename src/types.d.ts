@@ -24,3 +24,14 @@ export interface ILocalStorageKey {
   colorTheme: ColorTheme;
   mode: ThemeMode;
 }
+
+export interface INavigationItemSlim {
+  name: string;
+  url: string;
+  Icon?: any;
+}
+
+export interface INavigationItem extends INavigationItemSlim {
+  segments: string[];
+  breadcrumb: INavigationItemSlim[];
+}
