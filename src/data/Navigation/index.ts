@@ -10,8 +10,17 @@ export const Home: INavigationItem = {
   breadcrumb: [{ url: "/", Icon: Icons.Home, name: "Home" }],
 };
 
+export const Release: INavigationItem = {
+  url: "/release",
+  Icon: Icons.Package,
+  name: "Release",
+  segments: ["/release"],
+  breadcrumb: [{ url: "/release", Icon: Icons.Package, name: "Release" }],
+};
+
 export const Navigation: INavigationItem[] = [
   Home,
+
   {
     url: "/blogs",
     Icon: Icons.BookOpen,
@@ -25,19 +34,7 @@ export const Navigation: INavigationItem[] = [
       },
     ],
   },
-  {
-    url: "/release",
-    Icon: Icons.Package,
-    name: "Release",
-    segments: ["/release"],
-    breadcrumb: [
-      {
-        url: "/release",
-        Icon: Icons.Package,
-        name: "Release",
-      },
-    ],
-  },
+  Release,
   {
     url: "/admin",
     Icon: Icons.Settings,
@@ -54,5 +51,6 @@ export const Navigation: INavigationItem[] = [
 ];
 
 export const navigationMap = {
-  Home: Home,
+  Home,
+  Release,
 };
