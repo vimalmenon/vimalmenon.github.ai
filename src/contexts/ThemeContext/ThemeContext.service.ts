@@ -24,12 +24,7 @@ export const defaultThemeConfig: ThemeConfig = {
 };
 
 export const useTheme = () => {
-  const context = useContext(Context);
-
-  if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-
+  const context = useContext<IContext>(Context);
   return context;
 };
 
