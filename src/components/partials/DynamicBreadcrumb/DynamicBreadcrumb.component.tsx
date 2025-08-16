@@ -16,27 +16,6 @@ import {
 } from '@components';
 import { IDynamicBreadcrumbProps } from './DynamicBreadcrumb';
 
-// Define route metadata for better breadcrumb labels
-const routeLabels: Record<string, string> = {
-  '': 'Home',
-  admin: 'Admin',
-  blog: 'Blog',
-  category: 'Category',
-  dashboard: 'Dashboard',
-  post: 'Post',
-  posts: 'Posts',
-  release: 'Release',
-  settings: 'Settings',
-};
-
-// Define routes that should be excluded from breadcrumbs
-export const excludedRoutes = ['not-found', '404'];
-
-interface BreadcrumbSegment {
-  label: string;
-  href: string;
-  isLast: boolean;
-}
 
 export const DynamicBreadcrumb: React.FC<IDynamicBreadcrumbProps> = ({ breadcrumbs }) => {
   return (
