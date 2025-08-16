@@ -1,10 +1,10 @@
-import { IReactChildren } from '@/types';
 import { Footer, Header } from '@components';
+import { IMainLayoutProps } from './MainLayout';
 
-export const MainLayout: React.FC<IReactChildren> = ({ children }) => {
+export const MainLayout: React.FC<IMainLayoutProps> = ({ children, navigation }) => {
   return (
     <div>
-      <Header url="/" />
+      <Header url={navigation.url} />
       {children}
       <Footer />
     </div>

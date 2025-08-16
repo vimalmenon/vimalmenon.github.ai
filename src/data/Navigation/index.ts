@@ -9,6 +9,7 @@ export const Home: INavigationItem = {
   segments: ["/"],
   breadcrumb: [{ url: "/", Icon: Icons.Home, name: "Home" }],
 };
+
 export const Navigation: INavigationItem[] = [
   Home,
   {
@@ -53,8 +54,5 @@ export const Navigation: INavigationItem[] = [
 ];
 
 export const navigationMap = {
-  "/": "Home",
-  "/blogs": "Blogs",
-  "/release": "Release",
-  "/admin": "Admin",
+  Home: Home,
 };
