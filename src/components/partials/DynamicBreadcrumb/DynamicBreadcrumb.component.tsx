@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Home } from 'lucide-react';
 import * as motion from 'motion/react-client';
 
 
@@ -27,36 +26,26 @@ export const DynamicBreadcrumb: React.FC<IDynamicBreadcrumbProps> = ({ breadcrum
     >
       <Breadcrumb>
         <BreadcrumbList>
-          {/* Home link */}
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link
-                href="/"
-                className="flex items-center gap-1 hover:text-primary transition-colors"
-              >
-                <Home className="h-4 w-4" />
-                <span className="sr-only sm:not-sr-only">Home</span>
-              </Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-
-          {breadcrumbs.length > 0 && <BreadcrumbSeparator />}
 
           {/* Dynamic segments */}
           {breadcrumbs.map((breadcrumb, index, breadcrumbs) => (
             <React.Fragment key={breadcrumb.url}>
               <BreadcrumbItem>
                 {index == breadcrumbs.length - 1 ? (
-                  <BreadcrumbPage>{breadcrumb.name}</BreadcrumbPage>
+                  <BreadcrumbPage className="flex items-center gap-1 hover:text-primary transition-colors">
+                    <breadcrumb.Icon className="h-4 w-4" />
+                    {breadcrumb.name}
+                  </BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink asChild>
-                    <Link href={breadcrumb.url} className="hover:text-primary transition-colors">
-                      {breadcrumb.name}
+                    <Link href={breadcrumb.url} className="flex items-center gap-1 hover:text-primary transition-colors">
+                      <breadcrumb.Icon className="h-4 w-4" />
+                      <span className="sr-only sm:not-sr-only">{breadcrumb.name}</span>
                     </Link>
                   </BreadcrumbLink>
                 )}
               </BreadcrumbItem>
-              {!(index == breadcrumbs.length - 1) && <BreadcrumbSeparator />}
+              {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}
             </React.Fragment>
           ))}
         </BreadcrumbList>

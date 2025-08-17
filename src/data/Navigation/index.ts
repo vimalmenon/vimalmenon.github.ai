@@ -15,7 +15,10 @@ export const blogs: INavigationItem = {
   Icon: Icons.BookOpen,
   name: "Blogs",
   segments: ["/blogs"],
-  breadcrumb: [{ url: "/blogs", Icon: Icons.BookOpen, name: "Blogs" }],
+  breadcrumb: [
+    { url: "/", Icon: Icons.Home, name: "Home" },
+    { url: "/blogs", Icon: Icons.BookOpen, name: "Blogs" },
+  ],
 };
 
 export const Release: INavigationItem = {
@@ -23,7 +26,10 @@ export const Release: INavigationItem = {
   Icon: Icons.Package,
   name: "Release",
   segments: ["/release"],
-  breadcrumb: [{ url: "/release", Icon: Icons.Package, name: "Release" }],
+  breadcrumb: [
+    { url: "/", Icon: Icons.Home, name: "Home" },
+    { url: "/release", Icon: Icons.Package, name: "Release" },
+  ],
 };
 
 export const Navigation: INavigationItem[] = [
